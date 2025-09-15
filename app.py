@@ -127,7 +127,7 @@ except AttributeError:
 
 # --- Navigation Bar ---
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Prediction", "About"])
+page = st.sidebar.radio("Go to", ["Prediction", "About", "Team"])
 st.sidebar.markdown("---")
 
 # --- Page Logic ---
@@ -177,8 +177,6 @@ if page == "Prediction":
 
         try:
             prediction_proba = model.predict_proba(input_df)
-
-            # Determine the predicted class based on the highest probability
             predicted_class_index = np.argmax(prediction_proba, axis=1)[0]
             predicted_class = model.classes_[predicted_class_index]
 
@@ -188,11 +186,8 @@ if page == "Prediction":
 
         st.markdown("---")
         st.header("Prediction Results")
-
-        # Display the result
         st.info(f"The model predicts the likelihood of having gallstones is: **{predicted_class}**")
 
-        # Correctly display the confidence for each class
         if 'Yes' in model.classes_ and 'No' in model.classes_:
             yes_index = list(model.classes_).index('Yes')
             no_index = list(model.classes_).index('No')
@@ -226,3 +221,12 @@ elif page == "About":
     **This tool is for informational purposes only.** It is not a diagnostic tool and should not be used to replace professional medical advice, diagnosis, or treatment. 
     Always seek the advice of a qualified healthcare provider with any questions you may have regarding a medical condition.
     """)
+
+elif page == "Team":
+    st.title("Meet the Team")
+    st.markdown("---")
+    st.header("Maruti Margale")
+    st.markdown("""
+    **Data Scientist** **Email:** [margalemaruti3@gmail.com](mailto:margalemaruti3@gmail.com)
+    """)
+    st.write("Maruti is the data scientist responsible for developing and implementing the machine learning model used in this application.")

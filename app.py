@@ -227,6 +227,7 @@ elif page == "Team":
     st.markdown("---")
     st.header("Maruti Margale")
     st.markdown("""
-    **Data Scientist** **Email:** [margalemaruti3@gmail.com](mailto:margalemaruti3@gmail.com)
+    **Data Scientist** 
+    **Email:** [margalemaruti3@gmail.com](mailto:margalemaruti3@gmail.com)
     """)
     st.write("Maruti is the data scientist responsible for developing and implementing the machine learning model used in this application.")
